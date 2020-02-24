@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/SoosheBot/node-auth1-project.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["node", "authentication", "bcrypt"],
+  "author": "susheela bhat harkins",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SoosheBot/node-auth1-project/issues"
