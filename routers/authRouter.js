@@ -1,3 +1,5 @@
+
+const bcrypt = require("bcryptjs")
 const express = require("express");
 
 const User = require("../helpers/userModel");

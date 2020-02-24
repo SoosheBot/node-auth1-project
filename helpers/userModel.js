@@ -1,18 +1,17 @@
+const bcrypt = require("bcryptjs");
 const db = require("../data/dbConfig");
 
 module.exports = {
-    // get,
-    // getById,
-    add,
-    // update,
-    // remove
-  };
+  add,
+  find,
+  findBy,
+  findById,
+  update,
+  remove
+};
 
-//   function get() {
-//       return db("")
-//   };
 
 
 function add(user) {
-    return db("").insert(user);
+  return db("users").insert(user);
 }

@@ -13,8 +13,8 @@ Create a Project With API Authentication
     --api folder > server.js file
     --index.js file
     --.env file (add PORT=#### <--choose your own port number here)
+    --npx knex init (to create the knexfile.js--don't forget to update the settings)
 5. in server.js file setup your dependencies
-    --const bcrypt = require("bcryptjs");
     --const express = require("express");
     --const helmet = require("helmet");
     --const cors = require("cors");
@@ -24,6 +24,7 @@ Create a Project With API Authentication
     const PORT = process.env.PORT || "5000";
     server.listen(PORT, () => console.log(`\n** running on port: ${PORT} **\n`));
 7. add the necessary info to your model files in the helper folder, and the router files in your routers folder, and set them up in your server.js file.
+    --you will be calling the bcryptjs in your auth router file and in whichever file has the model you'll be using to run this router file, FYI
 8. 
 
 
