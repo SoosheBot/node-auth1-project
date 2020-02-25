@@ -11,10 +11,11 @@ router.post("/register", (req, res) => {
 
   Users.add(user)
     .then(newUser => {
+      req.session.loggedIn = true;
       res.status(201).json(newUser);
     })
     .catch(err => {
-      res.status(500).json({ message: err });
+      res.status(500).json(err);
     });
 });
 
