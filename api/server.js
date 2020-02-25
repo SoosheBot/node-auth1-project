@@ -8,6 +8,16 @@ const authRouter = require('../auth/authRouter');
 const usersRouter = require('../users/usersRouter');
 const restricted = require('../auth/restrictedMiddleware');
 
+const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
+
+
+
+
+  server.use(helmet());
+  server.use(express.json());
+  server.use(cors());
 
 
 router.use('/auth', authRouter);
