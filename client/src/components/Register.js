@@ -19,13 +19,13 @@ const Register = props => {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log('thereg', reg)
+        // console.log('thereg', reg)
         return axiosWithAuth()
         // any call that is going to need a response after a post* -- you have to do 'return' axiosWithAuth() -- *only post
         .post( '/api/auth/register', reg)
           // console.log('onsubmit is firing')
         .then(res => {
-            console.log('props', props)
+            // console.log('props', props)
             localStorage.setItem('token', res.data.token);
             props.history.push('/login');
             return true

@@ -22,7 +22,7 @@ const UserList = () => {
         usersList.map(userlist => {
           return (
             <div key={userlist.id} userlist={userlist}>
-              <h2>ID: {userlist.id}</h2>
+              {/* <h2>ID: {userlist.id}</h2> */}
               <h2>Name: {userlist.username}</h2>
               <h2>Password: {userlist.password}</h2>
             </div>
