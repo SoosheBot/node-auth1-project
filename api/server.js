@@ -42,7 +42,7 @@ server.use("/api/users", restricted, usersRouter);
 
 server.get("/", (req, res) => {
   console.log(req.session);
-  res.send("API is running");
+  res.status(200).json({message: "API is running"});
 });
 
 module.exports = server;
