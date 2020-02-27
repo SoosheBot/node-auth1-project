@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const router = require("express").Router();
+const jwt = require("jsonwebtoken"); // after npm i jsonwebtoken -- 1. call it here
 
 const Users = require("../users/usersModel");
 
@@ -20,15 +21,17 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
   let { username, password } = req.body;
-
-  // console.log(req.session);
-
   Users.findBy({ username })
     .first()
     .then(user => {
       if (user && bcrypt.compareSync(password, user.password)) {
-        req.session.loggedIn = true;
-        req.session.username = user.username;
+
+         // 2. use it here
+        const token = signToken(user);
+
+        // commented these out from Wed. project
+        // req.session.loggedIn = true;
+        // req.session.username = user.username;
 
         res.status(200).json({ message: `Welcome ${user.username}!` });
       } else {
@@ -53,5 +56,20 @@ router.get("/logout", (req, res) => {
     res.status(200).json({ bye: "felicia" });
   }
 });
+
+// 3. create the function
+function signToken(user) {
+  //5. set up everything in the return to ....actually return stuff
+  //5a.
+  const payload = {
+    userId: user.id,
+    user: user.username
+  };
+  //5b. -- this will get commented out and put elsewhere, but is fine here for now
+  const secret = "is it secret, is it safe"
+
+  //4. create the return
+  return jwt.sign(payload, secret, options);
+};
 
 module.exports = router;
